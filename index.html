@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#7d3026">
+<title>دعوت‌نامه تولد کوکو</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#241812;color:#fff5e4;font-family:Tahoma,Arial,sans-serif;padding:16px}
+main{max-width:650px;margin:auto;text-align:center}.poster{width:100%;height:auto;display:block;border:5px solid #c49a52;border-radius:12px}
+.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:18px 0}
+a{background:#c49a52;color:#26170e;text-decoration:none;padding:13px 19px;border-radius:28px;font-weight:bold}
+a.video{background:#963d31;color:#fff5e4}h2{color:#e5c783;font-size:20px;margin:22px 0 12px}
+video{width:100%;border:2px solid #c49a52;border-radius:12px;background:#000}
+.hint{font-size:13px;line-height:1.9;color:#e7d8bf}
+</style>
+</head>
+<body>
+<main>
+<img class="poster" src="poster.png" alt="پوستر قدیمی دعوت تولد کوکو">
+<div class="actions">
+<a href="https://share.google/GSm9jYqHxT1csXuG3" target="_blank" rel="noopener">📍 آدرس باکارا لانژ</a>
+<a class="video" href="#video">🎬 تماشای ویدیو</a>
+</div>
+<h2>ویدیوی مخصوص کوکو</h2>
+<video id="video" controls playsinline preload="metadata">
+<source src="koko-video.mp4" type="video/mp4">
+</video>
+<audio id="music" autoplay loop preload="auto">
+<source src="amoo-sabzi-foroosh-mahvesh.mp3" type="audio/mpeg">
+</audio>
+<p class="hint">موسیقی عمو سبزی‌فروش با تلاش برای پخش خودکار تنظیم شده است. اگر مرورگر پخش خودکار با صدا را محدود کند، با اولین لمس صفحه موسیقی شروع می‌شود.</p>
+</main>
+<script>
+const music = document.getElementById('music');
+music.play().catch(() => {
+  const startMusic = () => {
+    music.play().catch(()=>{});
+    document.removeEventListener('pointerdown', startMusic);
+    document.removeEventListener('touchstart', startMusic);
+  };
+  document.addEventListener('pointerdown', startMusic, {once:true});
+  document.addEventListener('touchstart', startMusic, {once:true});
+});
+</script>
+</body>
+</html>
